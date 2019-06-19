@@ -1,0 +1,32 @@
+---
+- name: Deploying 3-tier Application
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Enable Repos before deploying
+    template:
+      src: open_three-tier-app.repo
+      dest: /etc/yum.repos.d/open_three-tier-app.repo
+      mode: 0644
+
+- name: Deploying Frontends
+  hosts: frontends
+  become: true
+
+  roles:
+    - 3tier-frontends
+
+- name: Deploying Apps
+  hosts: apps
+  become: true
+
+  roles:
+    - 3tier-apps
+
+- name: Deploying AppDBs
+  hosts: appdbs
+  become: true
+
+  roles:
+    - 3tier-appdbs
