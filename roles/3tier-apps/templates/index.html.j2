@@ -11,25 +11,6 @@
 </head>
 
 <body>
-    <h1>Ansible has done its job - Welcome to Tomcat on App2</h1>
-</body>
-</html>
-[dchan-redhat.com@bastion templates]$ ls
-index.html.app1.j2  index.html.app2.j2  index.html.j2
-[dchan-redhat.com@bastion templates]$ cat index.html.j2 
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-
-  <title>Ansible Deployed Tomcat</title>
-  <meta name="description" content="Ansible Created Content">
-  <meta name="tony.g.kay@gmail.com" content="Ansible">
-
-</head>
-
-<body>
     <h1>Ansible has done its job - Welcome to Tomcat on {{ inventory_hostname }}</h1>
 </body>
 </html>
